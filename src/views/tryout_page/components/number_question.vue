@@ -1,5 +1,5 @@
 <template>
-	<div class="number_question" v-bind:class="{'number_question_clicked': (id == current_number)}">
+	<div class="number_question" v-bind:class="{'number_question_clicked': (id == current_number)}" v-on:click="onClickNumber">
 		<div class="number" id="1">{{id}}</div>
 	</div>
 </template>
@@ -10,6 +10,11 @@ export default {
 	props: {
 		id: Number,
 		current_number: Number,
+	},
+	methods: {
+		onClickNumber() {
+			this.$emit('onClickNumber', this.id);
+		}
 	}
 };
 </script>
@@ -23,11 +28,11 @@ $orange: #f57200;
 	border: 1.5px solid $orange;
 	text-align: center;
 	margin: 10px;
-	color: black;
-	background-color: white;
+	cursor: pointer;
 }
 .number_question_clicked {
 	background-color: $orange;
 	color: white;
+	cursor: pointer;
 }
 </style>

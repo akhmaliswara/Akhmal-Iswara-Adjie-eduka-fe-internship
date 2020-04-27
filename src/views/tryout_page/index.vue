@@ -5,7 +5,7 @@
 				<div class="question_picker">
 					<h3>Question List</h3>
 					<div class="question_list"> 
-						<NumberQuestion v-for="n in 12" v-bind:key="n" :id="n" :current_number="current_number"></NumberQuestion> 
+						<NumberQuestion v-for="n in 12" v-bind:key="n" :id="n" :current_number="current_number" v-on:onClickNumber="onClickNumber"></NumberQuestion> 
 					</div>
 				</div>
 				<div class="button_container">
@@ -54,9 +54,15 @@ export default {
 	},
 	data() {
 		return {
-			current_number: 1,
+			current_number: 3,
 		}
-	}
+	},
+	methods: {
+		onClickNumber(event) {
+			this.current_number = event;
+			console.log(event);
+		},
+	},
 };
 </script>
 
