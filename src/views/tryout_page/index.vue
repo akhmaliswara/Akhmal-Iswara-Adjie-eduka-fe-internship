@@ -41,6 +41,15 @@
 				</table>
 			</div>
 		</div>
+		<div id="modal_box">
+			<div id="modal_content">
+				<span class="close">&times;</span>
+				<br/>
+				<h3>Review</h3>
+				<p>Currently under development</p>
+				<button id="back">Kembali</button>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -58,6 +67,7 @@ export default {
 			current_number: 3,
 			soal: {},
 			jumlah_soal: 0,
+			display: 'none',
 		}
 	},
 	methods: {
@@ -140,5 +150,48 @@ $orange: #f57200;
 		min-width: 50px;
 	}
 	overflow: auto;
+}
+#modal_box {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+#modal_content {
+	background-color: #fefefe;
+	margin: 10% 30%;
+	padding: 30px;
+	border: 1px solid #888;
+	width: 400px;
+	height: 300px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	text-align: center;
+	h2, p {
+		line-height: 1.5em;
+	}
+}
+
+#back {
+	background-color: $orange;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 </style>
