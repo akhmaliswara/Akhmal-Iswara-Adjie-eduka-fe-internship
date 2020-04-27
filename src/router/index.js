@@ -10,10 +10,15 @@ const routes = [
     component: () => import('../components/HelloWorld.vue')
   },
   {
-    path: '/tryout-menu',
+    path: '/tryout',
     name: 'tryout-menu',
     component: () => import('../views/tryout_menu.vue'),
   },
+  {
+    path: '/tryout/1',
+    name: 'tryout-page',
+    component: () => import('../views/tryout_page.vue')
+  }
 ];
 
 const router = new VueRouter({

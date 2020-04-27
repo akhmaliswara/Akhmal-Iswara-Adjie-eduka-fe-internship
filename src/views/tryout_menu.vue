@@ -6,7 +6,7 @@
 		</div>
 		<div class="lower_side">
 			<div class="tryout_card">
-				<router-link :to="{name: 'tryout-menu'}">
+				<router-link :to="{name: 'tryout-page'}">
 					<div class="tryout_description">
 						<p><b id="mapel">Tes Pengetahuan Skolastik</b></p>
 						<p>Jumlah soal : 40</p>
