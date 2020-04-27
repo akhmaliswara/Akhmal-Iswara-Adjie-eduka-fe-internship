@@ -5,7 +5,7 @@
 				<div class="question_picker">
 					<h3>Question List</h3>
 					<div class="question_list"> 
-						<NumberQuestion v-for="n in 12" v-bind:key="n" :id="n" :current_number="current_number" v-on:onClickNumber="onClickNumber"></NumberQuestion> 
+						<NumberQuestion v-for="n in jumlah_soal" v-bind:key="n" :id="n" :current_number="current_number" v-on:onClickNumber="onClickNumber"></NumberQuestion> 
 					</div>
 				</div>
 				<div class="button_container">
@@ -16,27 +16,27 @@
 			<div class="content main_side">
 				<h2>Tes Potensi Skolastik</h2>
 				<img class="img_soal" src="./../../assets/question_example.jpg">
-				<p>Lorem ipsum dolor sit amet-amet jabang bayi ...</p>
+				<p>{{soal[current_number][0]}}</p>
 				<table>
 					<tr>
 						<td><input type="radio" value="A" name="option"><label>A. </label></td>
-						<td><label id="A">Anu</label></td>
+						<td><label id="A">{{soal[current_number][1]}}</label></td>
 					</tr>
 					<tr>
 						<td><input type="radio" value="B" name="option"><label>B. </label></td>
-						<td><label id="B">Anu</label></td>
+						<td><label id="B">{{soal[current_number][2]}}</label></td>
 					</tr>
 					<tr>
 						<td><input type="radio" value="C" name="option"><label>C. </label></td>
-						<td><label id="C">Anu</label></td>
+						<td><label id="C">{{soal[current_number][3]}}</label></td>
 					</tr>
 					<tr>
 						<td><input type="radio" value="D" name="option"><label>D. </label></td>
-						<td><label id="D">Anuu</label></td>
+						<td><label id="D">{{soal[current_number][4]}}</label></td>
 					</tr>
 					<tr>
 						<td><input type="radio" value="E" name="option"><label>E. </label></td>
-						<td><label id="E">Anu</label></td>
+						<td><label id="E">{{soal[current_number][5]}}</label></td>
 					</tr>
 				</table>
 			</div>
@@ -45,7 +45,8 @@
 </template>
 
 <script>
-import NumberQuestion from './components/number_question.vue';
+import NumberQuestion from './components/number_question.vue'
+import axios from 'axios';
 
 export default {
 	name: "tryout-page",
@@ -55,6 +56,8 @@ export default {
 	data() {
 		return {
 			current_number: 3,
+			soal: {},
+			jumlah_soal: 0,
 		}
 	},
 	methods: {
@@ -62,7 +65,21 @@ export default {
 			this.current_number = event;
 			console.log(event);
 		},
+		onReviewClicked() {
+
+		},
+		onFinishClicked() {
+
+		}
 	},
+	created() {
+		axios({ method: "GET", "url": "http://localhost:3000/soal?tryout_id=1", "headers": { "content-type": "application/json" } }).then(result => {
+			this.soal = result.data[0].soal;
+			this.jumlah_soal = Object.keys(this.soal).length;
+		}, error => {
+			console.error(error);
+		});
+	}
 };
 </script>
 

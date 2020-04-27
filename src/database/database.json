@@ -7,7 +7,7 @@
   ],
   "soal": [
     {"tryout_id": 1,
-      "soal": {"1": ["aku adalah ...", "manusia", "babi", "monyet", "kuda", "air"], "2": ["pig adalah ...", "manusia", "babi", "monyet", "kuda", "air"], "3":["keynom adalah ...", "manusia", "babi", "monyet", "kuda", "air"], "4":["gumpalala adalah ...", "manusia", "babi", "monyet", "kuda", "air"], "5":["udara adalah ...", "manusia", "babi", "monyet", "kuda", "air"]}
+      "soal": {"1": ["Aku adalah ...", "Manusia", "Babi", "Monyet", "Kuda", "Air"], "2": ["Pig adalah ...", "Manusia", "babi", "monyet", "kuda", "air"], "3":["keynom adalah ...", "manusia", "babi", "monyet", "kuda", "Air"], "4":["gumpalala adalah ...", "manusia", "babi", "monyet", "Kuda", "air"], "5":["udara adalah ...", "manusia", "babi", "Monyet", "Kuda", "air"]}
     }
   ]
 }
