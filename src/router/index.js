@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/tryout/1',
     name: 'tryout-page',
-    component: () => import('../views/tryout_page.vue')
+    component: () => import('../views/tryout_page/index.vue')
   }
 ];
 

@@ -4,7 +4,9 @@
 			<div class="content menu_side">
 				<div class="question_picker">
 					<h3>Question List</h3>
-					<div class="number" id="1">1</div>
+					<div class="question_list"> 
+						<NumberQuestion v-for="n in 12" v-bind:key="n" :id="n" :current_number="current_number"></NumberQuestion> 
+					</div>
 				</div>
 				<div class="button_container">
 					<button class="button" id="review_button">Review</button>
@@ -13,28 +15,28 @@
 			</div>
 			<div class="content main_side">
 				<h2>Tes Potensi Skolastik</h2>
-				<img class="img_soal" src="./../assets/question_example.jpg">
+				<img class="img_soal" src="./../../assets/question_example.jpg">
 				<p>Lorem ipsum dolor sit amet-amet jabang bayi ...</p>
 				<table>
 					<tr>
 						<td><input type="radio" value="A" name="option"><label>A. </label></td>
-						<td><label>Anu</label></td>
+						<td><label id="A">Anu</label></td>
 					</tr>
 					<tr>
 						<td><input type="radio" value="B" name="option"><label>B. </label></td>
-						<td><label>Anu</label></td>
+						<td><label id="B">Anu</label></td>
 					</tr>
 					<tr>
 						<td><input type="radio" value="C" name="option"><label>C. </label></td>
-						<td><label>Anu</label></td>
+						<td><label id="C">Anu</label></td>
 					</tr>
 					<tr>
 						<td><input type="radio" value="D" name="option"><label>D. </label></td>
-						<td><label>Anuu</label></td>
+						<td><label id="D">Anuu</label></td>
 					</tr>
 					<tr>
 						<td><input type="radio" value="E" name="option"><label>E. </label></td>
-						<td><label>Anu</label></td>
+						<td><label id="E">Anu</label></td>
 					</tr>
 				</table>
 			</div>
@@ -43,8 +45,18 @@
 </template>
 
 <script>
+import NumberQuestion from './components/number_question.vue';
+
 export default {
 	name: "tryout-page",
+	components: {
+		NumberQuestion,
+	},
+	data() {
+		return {
+			current_number: 1,
+		}
+	}
 };
 </script>
 
@@ -64,17 +76,15 @@ $orange: #f57200;
 }
 .menu_side {
 	float: right;
-	min-width: 200px;
+	min-width: 300px;
 	width: 30%;
 	height: 100%;
 }
 .question_picker {
 	padding: 30px 50px 30px 50px;
-	.number {
-		width: 30px;
-		height: 30px;
-		border: 1.5px solid $orange;
-		text-align: center;
+	.question_list {
+		display: flex;
+		flex-wrap: wrap;
 	}
 }
 .button_container {
@@ -108,5 +118,4 @@ $orange: #f57200;
 	}
 	overflow: auto;
 }
-
 </style>
